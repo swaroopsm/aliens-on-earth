@@ -5,16 +5,14 @@ module AliensOnEarth
 
       attr_accessor :dirname, :extension, :template, :data, :contents, :placeholder, :export_filename
 
+      DEFAULT_STORAGE_PATH = File.expand_path('../../../../data', __FILE__)
+
       def initialize
         create_dir
       end
 
-      def storage_path
-        File.expand_path('../../../../data', __FILE__)
-      end
-
       def create_dir
-        dirpath = File.join(storage_path, @dirname)
+        dirpath = File.join(self.class.storage_path, @dirname)
         FileUtils.mkdir dirpath unless Dir.exists? dirpath
       end
 
@@ -29,7 +27,7 @@ module AliensOnEarth
 
       def export
         self.render()
-        File.write(storage_filename, @contents)
+        File.write(self.class.storage_filename, @contents)
       end
 
       def template_path(extension)
@@ -37,7 +35,19 @@ module AliensOnEarth
       end
 
       def storage_filename
-        File.join(storage_path, @dirname, @export_filename + @extension)
+        File.join(self.class.storage_path, @dirname, @export_filename + @extension)
+      end
+
+      class << self
+        
+        def storage_path=(path)
+          @@storage_path = path
+        end
+
+        def storage_path
+          @@storage_path || DEFAULT_STORAGE_PATH
+        end
+
       end
 
     end

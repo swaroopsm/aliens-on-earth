@@ -14,7 +14,7 @@ module AliensOnEarth
 
     def prompt(key, question, value=nil)
       @questions[key] ||= {}
-      print @questions.keys.length.to_s + ". " + question + ": "
+      print @questions.keys.length.to_s + ". " + question + ": " unless value.nil?
       @questions[key][:question] = question
       @questions[key][:answer] = value.nil? ? gets.chomp! : value
     end
