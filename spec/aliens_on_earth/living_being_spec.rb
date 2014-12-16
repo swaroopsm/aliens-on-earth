@@ -25,6 +25,19 @@ module AliensOnEarth
       expect(@living_being.respond_to? :blood_color=).to be(true)
     end
 
+    it "should build accessors from a hash" do
+      hash = { :no_of_legs => '2', :planet => 'mars', :blood_color => 'green' }
+      @living_being.build_from_keys(hash)
+
+      expect(@living_being.no_of_legs).to eq('2')
+      expect(@living_being.planet).to eq('mars')
+      expect(@living_being.blood_color).to eq('green')
+    end
+
+    it "should return the current object for export data by default" do
+      expect(@living_being.export_data).to eq(@living_being)
+    end
+
   end
 
 end

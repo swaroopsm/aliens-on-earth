@@ -11,5 +11,5 @@ require_relative '../lib/aliens_on_earth'
 @alien_command.prompt :export_format, "Enter export format \n   [1] for Text File \n   [2] for PDF File \n   Your choice(1/2)"
 
 @alien = AliensOnEarth::Alien.new
-@alien.build_from_keys(@alien_command.questions)
+@alien.build_from_keys(@alien_command.questions.inject({}) { |h, (k, v)| h[k] = v[:answer]; h })
 @alien.export(@alien_command.answer_for(:export_format))

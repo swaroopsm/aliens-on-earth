@@ -4,6 +4,7 @@ module AliensOnEarth
     
     before do
       @alien = Alien.new
+      @alien.codename = 'striker'
     end
 
     it "should be a valid instance" do
@@ -22,6 +23,10 @@ module AliensOnEarth
     it "should consider codename as a valid accessor" do
       expect(@alien.respond_to? :codename).to eq(true)
       expect(@alien.respond_to? :codename=).to eq(true)
+    end
+    
+    it "should return the codename as the key" do
+      expect(@alien.key).to eq('striker')
     end
 
   end
