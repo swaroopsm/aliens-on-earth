@@ -1,4 +1,6 @@
 module AliensOnEarth
+
+  # Class responsible for handling CLI
   class Commander
 
     attr_reader :questions
@@ -12,6 +14,7 @@ module AliensOnEarth
       end
     end
 
+    # Prompt user for a question
     def prompt(key, question, value=nil)
       @questions[key] ||= {}
       print @questions.keys.length.to_s + ". " + question + ": " if value.nil?
@@ -19,6 +22,7 @@ module AliensOnEarth
       @questions[key][:answer] = value.nil? ? gets.chomp! : value
     end
 
+    # Returns answer for a particular question
     def answer_for(question)
       @questions[:"#{question}"][:answer]
     end
