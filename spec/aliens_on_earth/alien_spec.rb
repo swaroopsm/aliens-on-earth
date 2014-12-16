@@ -15,18 +15,21 @@ module AliensOnEarth
       expect(@alien.class.superclass).to eq(LivingBeing)
     end
 
-    it "should consider no_of_antennas as a valid accessor" do
-      expect(@alien.respond_to? :no_of_antennas).to eq(true)
-      expect(@alien.respond_to? :no_of_antennas=).to eq(true)
-    end
-
-    it "should consider codename as a valid accessor" do
-      expect(@alien.respond_to? :codename).to eq(true)
-      expect(@alien.respond_to? :codename=).to eq(true)
-    end
-    
     it "should return the codename as the key" do
       expect(@alien.key).to eq('striker')
+    end
+
+    it "should not be a valid alien" do
+      expect(@alien.valid?).to be(false)
+    end
+
+    it "should be a valid alien" do
+      @alien.no_of_antennas = 4
+      @alien.no_of_legs = 2
+      @alien.blood_color = 'green'
+      @alien.planet = 'mars'
+
+      expect(@alien.valid?).to be(true)
     end
 
   end

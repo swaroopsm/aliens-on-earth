@@ -9,6 +9,12 @@ module AliensOnEarth
       self.codename || @key
     end
 
+    def validators
+      super
+      validate :presence, :no_of_antennas
+      validate :presence, :codename
+    end
+
   end
 
 end

@@ -21,9 +21,13 @@ module AliensOnEarth
 
       # Export contents to a pdf file
       def export
-        self.create_storage_dir()
-        self.render()
-        @pdf.render_file storage_filename
+        begin
+          self.create_storage_dir()
+          self.render()
+          @pdf.render_file storage_filename
+        rescue Exception => e
+          raise e.message
+        end
       end
 
       # PDF helper methods

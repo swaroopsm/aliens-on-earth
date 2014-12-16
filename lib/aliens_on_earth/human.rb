@@ -14,6 +14,10 @@ module AliensOnEarth
       @planet = PLANET
     end
 
+    def validators
+      super
+    end
+
   end
 
 end

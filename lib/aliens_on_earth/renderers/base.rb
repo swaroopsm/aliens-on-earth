@@ -23,8 +23,12 @@ module AliensOnEarth
 
       # Common export method if renderred using templates
       def export
-        self.render()
-        File.write(storage_filename, @contents)
+        begin
+          self.render()
+          File.write(storage_filename, @contents)
+        rescue Exception => e
+          raise e.message
+        end
       end
 
       # Path of the template in use

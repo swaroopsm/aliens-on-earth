@@ -26,6 +26,10 @@ module AliensOnEarth
       expect(@human.blood_color).to eq('red')
     end
 
+    it "should be a valid human" do
+      expect(@human.valid?).to be(true)
+    end
+
   end
 
 end
