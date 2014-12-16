@@ -9,8 +9,7 @@ module AliensOnEarth
       def initialize
         @dirname = DIRNAME
         @extension = EXTENSION
-
-        super
+        self.create_dir
       end
 
       def render

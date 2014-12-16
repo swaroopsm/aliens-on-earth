@@ -6,7 +6,7 @@ module AliensOnEarth
       def initialize
         @dirname = 'pdf'
         @extension = '.pdf'
-        super
+        self.create_dir
       end
 
       def render

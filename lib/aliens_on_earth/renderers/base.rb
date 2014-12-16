@@ -7,17 +7,9 @@ module AliensOnEarth
 
       DEFAULT_STORAGE_PATH = File.expand_path('../../../../data', __FILE__)
 
-      def initialize
-        create_dir
-      end
-
       def create_dir
         dirpath = File.join(self.class.storage_path, @dirname)
         FileUtils.mkdir dirpath unless Dir.exists? dirpath
-      end
-
-      def generate_filename
-
       end
 
       def erb
