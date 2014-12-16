@@ -4,17 +4,19 @@ module AliensOnEarth
   class Renderer
 
     TEXT = 'txt'
+    TEXT_CONST = '1'
+
     PDF = 'pdf'
+    PDF_CONST = '2'
 
     def initialize(format)
       @format = format
     end
 
     def engine
-      case @format
-      when TEXT
+      if Formatter.text? @format
         return Renderers::Text.new
-      when PDF
+      elsif Formatter.pdf? @format
         return Renderers::Pdf.new
       else
         return Renderers::Text.new

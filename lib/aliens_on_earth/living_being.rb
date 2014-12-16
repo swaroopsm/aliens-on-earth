@@ -23,6 +23,10 @@ module AliensOnEarth
       engine.export
     end
 
+    def build_from_keys(hash)
+      hash.each { |key, value| instance_variable_set("@#{key}", value[:answer]) }
+    end
+
   end
 
 end
