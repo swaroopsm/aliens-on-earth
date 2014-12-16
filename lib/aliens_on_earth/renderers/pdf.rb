@@ -3,14 +3,17 @@ module AliensOnEarth
 
     class Pdf < Base
 
+      DIRNAME = 'pdf'
+      EXTENSION = '.pdf'
+
       def initialize
-        @dirname = 'pdf'
-        @extension = '.pdf'
+        @dirname = DIRNAME
+        @extension = EXTENSION
+        @pdf = Prawn::Document.new
       end
 
       def render
         @template = template_path('prawn')
-        @pdf = Prawn::Document.new
         self.instance_eval File.read(@template)
       end
 
