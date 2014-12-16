@@ -9,12 +9,12 @@ module AliensOnEarth
         create_dir
       end
 
-      def get_path
+      def storage_path
         File.expand_path('../../../../data', __FILE__)
       end
 
       def create_dir
-        dirpath = File.join(get_path, @dirname)
+        dirpath = File.join(storage_path, @dirname)
         FileUtils.mkdir dirpath unless Dir.exists? dirpath
       end
 
@@ -29,12 +29,15 @@ module AliensOnEarth
 
       def export
         self.render()
-        filename = File.join(get_path, @dirname, @export_filename + @extension)
-        File.write(filename, @contents)
+        File.write(storage_filename, @contents)
       end
 
       def template_path(extension)
         File.expand_path('../../renderers/templates/' + @dirname + '/' + @placeholder + '.' + extension, __FILE__)
+      end
+
+      def storage_filename
+        File.join(storage_path, @dirname, @export_filename + @extension)
       end
 
     end

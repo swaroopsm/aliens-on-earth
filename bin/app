@@ -9,4 +9,4 @@ alien.blood_color = 'green'
 alien.no_of_antennas = 11
 alien.no_of_legs = 3 
 
-alien.export('txt')
+alien.export('pdf')

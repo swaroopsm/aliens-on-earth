@@ -1,7 +1,8 @@
-# Require libraries
+# Require third-party libraries
 require 'erb'
 require 'fileutils'
 require 'securerandom'
+require 'prawn'
 
 # Require app files
 require_relative 'aliens_on_earth/living_being'
