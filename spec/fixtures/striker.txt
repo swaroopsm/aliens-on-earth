@@ -1,0 +1,8 @@
+======================================
+Alien Details
+======================================
+Codename          : striker
+Blood Color       : green
+No. of Antennas   : 1
+No. of Legs       : 4
+Home Planet       : mars

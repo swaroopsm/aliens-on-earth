@@ -9,10 +9,10 @@ module AliensOnEarth
       def initialize
         @dirname = DIRNAME
         @extension = EXTENSION
-        self.create_dir
       end
 
       def render
+        self.create_storage_dir()
         @template = template_path('erb')
         @contents = erb.result(binding)
       end

@@ -6,7 +6,6 @@ module AliensOnEarth
       def initialize
         @dirname = 'pdf'
         @extension = '.pdf'
-        self.create_dir
       end
 
       def render
@@ -16,7 +15,8 @@ module AliensOnEarth
       end
 
       def export
-        self.render
+        self.create_storage_dir()
+        self.render()
         @pdf.render_file storage_filename
       end
 

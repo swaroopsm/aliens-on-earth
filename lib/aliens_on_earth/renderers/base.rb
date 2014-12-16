@@ -7,8 +7,9 @@ module AliensOnEarth
 
       DEFAULT_STORAGE_PATH = File.expand_path('../../../../data', __FILE__)
 
-      def create_dir
-        dirpath = File.join(self.class.storage_path, @dirname)
+      def create_storage_dir
+        placeholder = @placeholder || @dirname
+        dirpath = File.join(self.class.storage_path, placeholder)
         FileUtils.mkdir dirpath unless Dir.exists? dirpath
       end
 
@@ -19,7 +20,7 @@ module AliensOnEarth
 
       def export
         self.render()
-        File.write(self.class.storage_filename, @contents)
+        File.write(storage_filename, @contents)
       end
 
       def template_path(extension)
@@ -27,7 +28,7 @@ module AliensOnEarth
       end
 
       def storage_filename
-        File.join(self.class.storage_path, @dirname, @export_filename + @extension)
+        File.join(self.class.storage_path, @placeholder, @export_filename + @extension)
       end
 
       class << self
