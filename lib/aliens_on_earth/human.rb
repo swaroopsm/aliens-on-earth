@@ -9,7 +9,7 @@ module AliensOnEarth
     PLANET = 'earth'
 
     def initialize
-      @legs = NUMBER_OF_LEGS
+      @no_of_legs = NUMBER_OF_LEGS
       @blood_color = BLOOD_COLOR
       @planet = PLANET
     end

@@ -15,7 +15,7 @@ module AliensOnEarth
     end
 
     it "should assign the value of legs correctly" do
-      expect(@human.legs).to eq(2)
+      expect(@human.no_of_legs).to eq(2)
     end
 
     it "should assign the value of planet correctly" do

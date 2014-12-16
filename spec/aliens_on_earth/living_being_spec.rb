@@ -11,8 +11,8 @@ module AliensOnEarth
     end
 
     it "should consider legs as a valid accessor" do
-      expect(@living_being.respond_to? :legs).to be(true)
-      expect(@living_being.respond_to? :legs=).to be(true)
+      expect(@living_being.respond_to? :no_of_legs).to be(true)
+      expect(@living_being.respond_to? :no_of_legs=).to be(true)
     end
 
     it "should consider planet as a valid accessor" do
