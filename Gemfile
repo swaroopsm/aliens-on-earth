@@ -1,5 +1,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem 'rspec', :group => :test
 gem 'prawn'
+
+gem 'rspec', :group => :test
+gem 'coveralls', require: false
