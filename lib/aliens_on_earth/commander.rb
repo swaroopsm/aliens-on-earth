@@ -3,11 +3,13 @@ module AliensOnEarth
 
     attr_reader :questions
 
-    def initialize(title)
-      puts "=============================="
-      puts title
-      puts "=============================="
+    def initialize(title=nil)
       @questions = {}
+      unless title.nil?
+        puts "=============================="
+        puts title
+        puts "=============================="
+      end
     end
 
     def prompt(key, question)
