@@ -12,11 +12,11 @@ module AliensOnEarth
       end
     end
 
-    def prompt(key, question)
+    def prompt(key, question, value=nil)
       @questions[key] ||= {}
       print @questions.keys.length.to_s + ". " + question + ": "
       @questions[key][:question] = question
-      @questions[key][:answer] = gets.chomp!
+      @questions[key][:answer] = value.nil? ? gets.chomp! : value
     end
 
     def answer_for(question)

@@ -3,12 +3,6 @@ module AliensOnEarth
   # Register all renderer engines here
   class Renderer
 
-    TEXT = 'txt'
-    TEXT_CONST = '1'
-
-    PDF = 'pdf'
-    PDF_CONST = '2'
-
     def initialize(format)
       @format = format
     end

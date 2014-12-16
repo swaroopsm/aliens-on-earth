@@ -15,10 +15,8 @@ module AliensOnEarth
     end
 
     it "should prompt for a question and store it in the questions hash" do
-      puts ""
-      puts "Enter codename and blood color as striker and green to respectively pass!"
-      @commander.prompt :codename, "Enter Codename"
-      @commander.prompt :blood_color, "Enter Blood Color"
+      @commander.prompt :codename, "Enter Codename", "striker"
+      @commander.prompt :blood_color, "Enter Blood Color", "green"
 
       expect(@commander.questions[:codename]).to_not be(nil) 
       expect(@commander.questions[:blood_color]).to_not be(nil) 
@@ -31,9 +29,7 @@ module AliensOnEarth
     end
 
     it "should return the answer correctly" do
-      puts ""
-      puts "Enter codename as striker to pass!"
-      @commander.prompt :codename, "Enter Codename"
+      @commander.prompt :codename, "Enter Codename", "striker"
       expect(@commander.answer_for(:codename)).to eq('striker')
     end
 
