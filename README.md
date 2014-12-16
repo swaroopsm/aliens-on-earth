@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/swaroopsm/aliens-on-earth.svg?branch=master)](https://travis-ci.org/swaroopsm/aliens-on-earth)
 [![Code Climate](https://codeclimate.com/github/swaroopsm/aliens-on-earth/badges/gpa.svg)](https://codeclimate.com/github/swaroopsm/aliens-on-earth)
+[![Coverage Status](https://coveralls.io/repos/swaroopsm/aliens-on-earth/badge.png?branch=master)](https://coveralls.io/r/swaroopsm/aliens-on-earth?branch=master)
 
 This is a task / problem given by Multunus Software.
 
