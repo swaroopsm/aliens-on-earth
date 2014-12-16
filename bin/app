@@ -2,3 +2,11 @@
 
 require_relative '../lib/aliens_on_earth'
 
+alien = AliensOnEarth::Alien.new
+alien.codename = 'striker'
+alien.planet = 'zigzig'
+alien.blood_color = 'green'
+alien.no_of_antennas = 11
+alien.no_of_legs = 3 
+
+alien.export('txt')
