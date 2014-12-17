@@ -21,7 +21,7 @@ Install gems
 $ bundle
 ~~~
 
-Run the application
+Run the application and answer the questions prompted that will be prompted
 ~~~
 $ ./bin/app
 ~~~

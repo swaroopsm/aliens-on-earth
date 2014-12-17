@@ -4,7 +4,7 @@ module AliensOnEarth
     
     before do
       @alien = Alien.new
-      @alien.codename = 'striker'
+      @alien.codename = 'STRIKER'
     end
 
     it "should be a valid instance" do

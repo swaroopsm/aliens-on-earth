@@ -39,7 +39,7 @@ module AliensOnEarth
       hash.each { |key, value| instance_variable_set("@#{key}", value) }
     end
 
-    # All the validators
+    # Register all validators
     def validators
       validate :presence, :no_of_legs
       validate :presence, :planet

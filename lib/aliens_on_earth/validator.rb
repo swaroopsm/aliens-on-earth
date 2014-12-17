@@ -3,6 +3,7 @@ module AliensOnEarth
 
     attr_accessor :validators, :validation_status, :validation_messages
 
+    # Method that pushes all validations
     def validate(type, _accessor)
       @validators ||= {}
       @validators[type] ||= {}
@@ -30,10 +31,12 @@ module AliensOnEarth
       return true
     end
 
+    # Return the calue of an accessor member
     def get_accessor(accessor)
       self.send accessor
     end
 
+    # Return if a entity is valid
     def valid?
       self.validators
       @validation_messages ||= []

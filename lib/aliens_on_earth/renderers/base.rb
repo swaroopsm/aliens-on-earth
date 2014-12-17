@@ -52,6 +52,7 @@ module AliensOnEarth
         File.join(storage_path, @placeholder, @export_filename + @extension)
       end
 
+      # Register all validators
       def validators
         validate :file_existence, :storage_filename
       end
