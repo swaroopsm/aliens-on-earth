@@ -53,7 +53,7 @@ module AliensOnEarth
       end
 
       def validators
-        validate :file_existense, :storage_filename
+        validate :file_existence, :storage_filename
       end
 
       class << self

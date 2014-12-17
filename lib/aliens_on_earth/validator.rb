@@ -3,11 +3,12 @@ module AliensOnEarth
 
     attr_accessor :validators, :validation_status, :validation_messages
 
-    def validate(type, accessor)
+    def validate(type, _accessor)
       @validators ||= {}
       @validators[type] ||= {}
+      accessor = self.send("validate_" + type.to_s, _accessor)
 
-      @validators[type][accessor] = self.send("validate_" + type.to_s, accessor)
+      @validators[type][_accessor] = accessor
     end
 
     # Validates presence
@@ -20,8 +21,8 @@ module AliensOnEarth
       return true
     end
 
-    # Validates file existense
-    def validate_file_existense(_accessor)
+    # Validates file existence
+    def validate_file_existence(_accessor)
       accessor = get_accessor(_accessor)
 
       return false if File.exists? accessor
@@ -41,7 +42,7 @@ module AliensOnEarth
         @validators[key].each do |attribute, status|
           if status == false
             @validation_status = false
-            @validation_messages << key.to_s.capitalize + " of " + attribute.to_s.split('_').join(' ').capitalize + " failed"
+            @validation_messages << attribute.to_s + " #{I18n['validation'][key.to_s]}"
           end
         end
       end
