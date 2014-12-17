@@ -4,6 +4,7 @@ module AliensOnEarth
   class LivingBeing
 
     include Validator
+    include Helpers::ViewHelper
 
     attr_accessor :no_of_legs, :planet, :blood_color
     attr_reader :key
@@ -29,13 +30,7 @@ module AliensOnEarth
       if valid?
         engine.export
       else
-        puts "xxxxxxxxxxxxxxxxxxxxxx"
-        puts "Validation Errors!"
-        puts "xxxxxxxxxxxxxxxxxxxxxx"
-        @validation_messages.each { |message| puts message }
-
-        puts
-        puts "Try again!"
+        render_partial 'validation_errors', { :errors => @validation_messages }
       end
     end
 

@@ -47,7 +47,7 @@ module AliensOnEarth
       end
 
       it "should return the correct templates path" do
-        expect(@pdf_renderer.template_path('pdf')).to eq(File.expand_path('../../../../lib/aliens_on_earth/renderers/templates/pdf/alien.pdf', __FILE__))
+        expect(@pdf_renderer.template_path('pdf')).to eq(File.expand_path('../../../../views/renderers/pdf/alien.pdf', __FILE__))
       end
 
       it "should return the storage filename correctly" do

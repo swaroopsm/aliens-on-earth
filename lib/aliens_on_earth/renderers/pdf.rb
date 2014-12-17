@@ -24,7 +24,7 @@ module AliensOnEarth
         begin
           self.create_storage_dir()
           self.render()
-          @pdf.render_file storage_filename
+          @pdf.render_file storage_filename if valid?
         rescue Exception => e
           raise e.message
         end

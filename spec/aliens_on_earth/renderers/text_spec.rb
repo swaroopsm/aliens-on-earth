@@ -43,7 +43,7 @@ module AliensOnEarth
       end
 
       it "should return the correct templates path" do
-        expect(@text_renderer.template_path('erb')).to eq(File.expand_path('../../../../lib/aliens_on_earth/renderers/templates/text/alien.erb', __FILE__))
+        expect(@text_renderer.template_path('erb')).to eq(File.expand_path('../../../../views/renderers/text/alien.erb', __FILE__))
       end
 
       it "should return the storage filename correctly" do

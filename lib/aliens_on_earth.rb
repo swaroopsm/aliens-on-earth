@@ -6,6 +6,7 @@ require 'prawn'
 
 # Require app files
 require_relative 'aliens_on_earth/validator'
+require_relative 'aliens_on_earth/helpers/view_helper'
 require_relative 'aliens_on_earth/living_being'
 require_relative 'aliens_on_earth/human'
 require_relative 'aliens_on_earth/alien'

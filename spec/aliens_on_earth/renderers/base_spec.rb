@@ -20,7 +20,7 @@ module AliensOnEarth
       it "should assign value of storage path correctly" do
         Base.storage_path = File.expand_path('../../../temp_data', __FILE__)
 
-        expect(Base.storage_path).to eq(File.expand_path('../../../temp_data', __FILE__))
+        expect(@base.storage_path).to eq(File.expand_path('../../../temp_data', __FILE__))
       end
 
     end

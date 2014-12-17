@@ -5,6 +5,7 @@ module AliensOnEarth
 
     attr_accessor :no_of_antennas, :codename
 
+    # This identifies an alien
     def key
       self.codename || @key
     end
