@@ -30,3 +30,18 @@ $ ./bin/app
 ~~~
 $ bundle exec rspec
 ~~~
+
+## Directory Structure
+~~~
+bin
+  - app # the main app binary
+config
+  - i18n.yml # i18n messages for validation etc.
+lib # core library files
+  - aliens_on_earth
+  - aliens_on_earth.rb
+spec # all tests
+views
+  - partials # view partials
+  - renderers # templates for renderer engines
+~~~
