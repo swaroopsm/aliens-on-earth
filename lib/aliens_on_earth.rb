@@ -21,5 +21,8 @@ require_relative 'aliens_on_earth/formatter'
 module AliensOnEarth
 
   # Defaulting to english for the temporarily
-  I18n = YAML.load_file(File.expand_path('../../config/i18n.yml', __FILE__))['en']
+  DEFAULT_I18N_LANG = 'en'
+
+  I18n = YAML.load_file(File.expand_path('../../config/i18n.yml', __FILE__))[DEFAULT_I18N_LANG]
+
 end

@@ -1,4 +1,4 @@
 en:
   validation:
-    presence: is blank
+    presence: can't be blank
     file_existence: already exists
