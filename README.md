@@ -26,6 +26,13 @@ Run the application and answer the questions prompted that will be prompted
 $ ./bin/app
 ~~~
 
+## Adding a new export formatter / renderer
+In order to add a new export format do the following:
+- Create a file called `<format>_renderer.rb` in `lib/aliens_on_earth/renderers/`
+- Setup the `DIRNAME` and `EXTENSION` respectively
+- Create a template in `views/templates/renderers/<DIRNAME>/alien.erb`. Here `@data` is availabe with all the data stuffs
+- Run `bin/app` and this would automatically show up the newly created export formatter.
+
 ## Running tests
 ~~~
 $ bundle exec rspec
