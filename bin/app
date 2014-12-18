@@ -2,12 +2,14 @@
 
 require_relative '../lib/aliens_on_earth'
 
+# Print all the available renderer formatters
 renderer_formats = AliensOnEarth::Formatter.all
 @formats = ''
 renderer_formats.each do |key, value|
   @formats += "[#{key}] #{value[:title]}" + "\n "
 end
 
+# Create a new command
 @alien_command = AliensOnEarth::Commander.new("Alien Details")
 @alien_command.prompt :codename, "Enter Codename"
 @alien_command.prompt :blood_color, "Enter Blood Color"
@@ -16,6 +18,7 @@ end
 @alien_command.prompt :planet, "Enter home planet"
 @alien_command.prompt :export_format, "Enter export format \n #{@formats} Your Choice"
 
+# Create a new alien
 @alien = AliensOnEarth::Alien.new
 @alien.build_from_keys(@alien_command.questions.inject({}) { |h, (k, v)| h[k] = v[:answer]; h })
 begin
