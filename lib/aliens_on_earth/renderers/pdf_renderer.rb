@@ -2,7 +2,7 @@ module AliensOnEarth
   module Renderers
 
     # Renderer responsible for renderring PDF files using PrawnPDF. Inherits from Base Renderer.
-    class Pdf < Base
+    class PdfRenderer < BaseRenderer
 
       DIRNAME = 'pdf'
       EXTENSION = '.pdf'

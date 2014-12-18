@@ -1,13 +1,13 @@
 module AliensOnEarth
   module Renderers
 
-    describe Pdf do
+    describe PdfRenderer do
 
       before do
         FileUtils.mkdir(File.expand_path('../../../temp_data', __FILE__))
-        Renderers::Base.storage_path = File.expand_path('../../../temp_data', __FILE__)
+        BaseRenderer.storage_path = File.expand_path('../../../temp_data', __FILE__)
 
-        @pdf_renderer = Pdf.new
+        @pdf_renderer = PdfRenderer.new
         @pdf_renderer.placeholder = 'alien'
         @pdf_renderer.export_filename = 'striker'
 
@@ -26,15 +26,15 @@ module AliensOnEarth
       end
 
       it "should be an instance of Pdf" do
-        expect(@pdf_renderer).to be_an_instance_of(Pdf)
+        expect(@pdf_renderer).to be_an_instance_of(PdfRenderer)
       end
 
       it "should assign the value of dirname correctly" do
-        expect(@pdf_renderer.dirname).to eq(Pdf::DIRNAME)
+        expect(@pdf_renderer.dirname).to eq(PdfRenderer::DIRNAME)
       end
 
       it "should assign the value of extension correctly" do
-        expect(@pdf_renderer.extension).to eq(Pdf::EXTENSION)
+        expect(@pdf_renderer.extension).to eq(PdfRenderer::EXTENSION)
       end
 
       it "should create an instance of prawn pdf" do

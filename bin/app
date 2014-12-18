@@ -2,14 +2,25 @@
 
 require_relative '../lib/aliens_on_earth'
 
+renderer_formats = AliensOnEarth::Formatter.all
+@formats = ''
+renderer_formats.each do |key, value|
+  @formats += "[#{key}] #{value[:title]}" + "\n "
+end
+
 @alien_command = AliensOnEarth::Commander.new("Alien Details")
 @alien_command.prompt :codename, "Enter Codename"
 @alien_command.prompt :blood_color, "Enter Blood Color"
 @alien_command.prompt :no_of_antennas, "Enter number of Antennas"
 @alien_command.prompt :no_of_legs, "Enter number of legs"
 @alien_command.prompt :planet, "Enter home planet"
-@alien_command.prompt :export_format, "Enter export format \n   [1] for Text File \n   [2] for PDF File \n   Your choice(1/2)"
+@alien_command.prompt :export_format, "Enter export format \n #{@formats} Your Choice"
 
 @alien = AliensOnEarth::Alien.new
 @alien.build_from_keys(@alien_command.questions.inject({}) { |h, (k, v)| h[k] = v[:answer]; h })
-@alien.export(@alien_command.answer_for(:export_format))
+begin
+  @export_format = renderer_formats[@alien_command.answer_for(:export_format)]
+  @alien.export(@export_format)
+rescue Exception => e
+  puts e.message
+end

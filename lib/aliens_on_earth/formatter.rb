@@ -1,30 +1,25 @@
 module AliensOnEarth
+  # Register all renderers here
   class Formatter
 
-    # *_CONST indicates a name for a particular format
-    # *_ID indicates an id for a particular format
-
-    TEXT_CONST = 'txt'
-    TEXT_ID = '1'
-
-    PDF_CONST = 'pdf'
-    PDF_ID = '2'
+    extend Utilities
 
     class << self
 
-      # Check whether the requested formatter is of txt
-      def text?(format)
-        check_format(format, TEXT_ID, TEXT_CONST)
-      end
+      def all
+        renderers = {}
 
-      # Check whether the requested formatter is of pdf
-      def pdf?(format)
-        check_format(format, PDF_ID, PDF_CONST)
-      end
+        Dir.glob(File.expand_path("../renderers/*", __FILE__)).each_with_index do |renderer, index|
+          basename = File.basename renderer, '.rb'
+          key = (index+1).to_s
+          renderers[key] = {
+            :basename => basename,
+            :classname => Formatter.to_class(basename),
+            :title => Formatter.humanize_renderer(basename)
+          }
+        end
 
-      # Validate a format
-      def check_format(format, x, y)
-        format.to_s == x or format.to_s == y
+        renderers
       end
 
     end

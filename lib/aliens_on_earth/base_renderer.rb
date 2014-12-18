@@ -1,15 +1,14 @@
 module AliensOnEarth
-  module Renderers
 
     # Abstract class for all renderer engines
-    class Base
+    class BaseRenderer
 
       include Validator
       include Helpers::ViewHelper
 
       attr_accessor :dirname, :extension, :template, :data, :contents, :placeholder, :export_filename
 
-      DEFAULT_STORAGE_PATH = File.expand_path('../../../../data', __FILE__)
+      DEFAULT_STORAGE_PATH = File.expand_path('../../../data', __FILE__)
 
       # Create directory where an placeholder / entity files will exported to
       def create_storage_dir
@@ -44,7 +43,7 @@ module AliensOnEarth
 
       # Path of the template in use
       def template_path(extension)
-        File.expand_path('../../../../views/renderers/' + @dirname + '/' + @placeholder + '.' + extension, __FILE__)
+        File.expand_path('../../../views/renderers/' + @dirname + '/' + @placeholder + '.' + extension, __FILE__)
       end
 
       # Name of the export file
@@ -74,5 +73,4 @@ module AliensOnEarth
 
     end
 
-  end
 end

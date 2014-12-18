@@ -1,13 +1,13 @@
 module AliensOnEarth
   module Renderers
 
-    describe Text do
+    describe TextRenderer do
 
       before do
         FileUtils.mkdir(File.expand_path('../../../temp_data', __FILE__))
-        Renderers::Base.storage_path = File.expand_path('../../../temp_data', __FILE__)
+        BaseRenderer.storage_path = File.expand_path('../../../temp_data', __FILE__)
 
-        @text_renderer = Text.new
+        @text_renderer = TextRenderer.new
         @text_renderer.placeholder = 'alien'
         @text_renderer.export_filename = 'striker'
 
@@ -26,15 +26,15 @@ module AliensOnEarth
       end
 
       it "should be an instance of Text" do
-        expect(@text_renderer).to be_an_instance_of(Text)
+        expect(@text_renderer).to be_an_instance_of(TextRenderer)
       end
 
       it "should assign the value of dirname correctly" do
-        expect(@text_renderer.dirname).to eq(Text::DIRNAME)
+        expect(@text_renderer.dirname).to eq(TextRenderer::DIRNAME)
       end
 
       it "should assign the value of extension correctly" do
-        expect(@text_renderer.extension).to eq(Text::EXTENSION)
+        expect(@text_renderer.extension).to eq(TextRenderer::EXTENSION)
       end
 
       it "should create specific directory" do

@@ -7,16 +7,20 @@ require 'yaml'
 
 # Require app files
 require_relative 'aliens_on_earth/validator'
+require_relative 'aliens_on_earth/utilities'
 require_relative 'aliens_on_earth/helpers/view_helper'
 require_relative 'aliens_on_earth/living_being'
 require_relative 'aliens_on_earth/human'
 require_relative 'aliens_on_earth/alien'
-require_relative 'aliens_on_earth/renderer'
-require_relative 'aliens_on_earth/renderers/base'
-require_relative 'aliens_on_earth/renderers/text'
-require_relative 'aliens_on_earth/renderers/pdf'
+require_relative 'aliens_on_earth/renderer_registrar'
+require_relative 'aliens_on_earth/base_renderer'
 require_relative 'aliens_on_earth/commander'
 require_relative 'aliens_on_earth/formatter'
+
+# Require all renderers here
+Dir.glob(File.expand_path('../aliens_on_earth/renderers/*', __FILE__)).each do |renderer|
+  require renderer
+end
 
 module AliensOnEarth
 

@@ -2,7 +2,7 @@ module AliensOnEarth
   module Renderers
 
     # Renderer responsible for rendering contents in text format. Inherits from Base Renderer
-    class Text < Base
+    class TextRenderer < BaseRenderer
 
       DIRNAME = 'text'
       EXTENSION = '.txt'

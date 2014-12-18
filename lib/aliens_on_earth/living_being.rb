@@ -21,7 +21,7 @@ module AliensOnEarth
 
     # Export data into a suitable format that will be exported using the rendering engines
     def export(format)
-      renderer = Renderer.new(format)
+      renderer = RendererRegistrar.new(format)
       engine = renderer.engine
       engine.placeholder = self.class.name.split('::').last.downcase
       engine.data = self.export_data
